@@ -1,4 +1,4 @@
-import { Component, VERSION } from '@angular/core';
+import { Component } from '@angular/core';
 import { combineLatest, map } from 'rxjs';
 import { Step } from './models/step.enum';
 import { ITickSettings } from './models/tick-settings.model';
