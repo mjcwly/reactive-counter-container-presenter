@@ -1,0 +1,113 @@
+<div class="m-2">
+  <div
+    class="btn-group w-100 mb-2"
+    role="group"
+    aria-label="Basic radio toggle button group"
+  >
+    <input
+      type="radio"
+      class="btn-check"
+      name="btnRadioGroup1"
+      id="btnRadioStop"
+      [checked]="!inputTickSettings.isTicking"
+      (click)="onIsTickingChanged(false)"
+    />
+    <label class="btn btn-outline-primary" for="btnRadioStop">
+      <i class="fa fa-stop" aria-hidden="true"></i><br />
+      Stop</label
+    >
+
+    <input
+      type="radio"
+      class="btn-check"
+      name="btnRadioGroup1"
+      id="btnRadioStart"
+      [checked]="inputTickSettings.isTicking"
+      (click)="onIsTickingChanged(true)"
+    />
+    <label class="btn btn-outline-primary" for="btnRadioStart">
+      <i class="fa fa-play" aria-hidden="true"></i><br />
+      Start
+    </label>
+  </div>
+
+  <div
+    class="btn-group w-100 mb-2"
+    role="group"
+    aria-label="Basic radio toggle button group"
+  >
+    <input
+      type="radio"
+      class="btn-check"
+      name="btnRadioGroup2"
+      id="btnRadioSlow"
+      [checked]="inputTickSettings.tickSpeed === tickSpeed.SLOW"
+      (click)="onTickSpeedChanged(tickSpeed.SLOW)"
+    />
+    <label class="btn btn-outline-primary" for="btnRadioSlow">
+      <i class="fa fa-bolt" aria-hidden="true"></i><br />
+      Slow</label
+    >
+
+    <input
+      type="radio"
+      class="btn-check"
+      name="btnRadioGroup2"
+      id="btnRadioMedium"
+      [checked]="inputTickSettings.tickSpeed === tickSpeed.MEDIUM"
+      (click)="onTickSpeedChanged(tickSpeed.MEDIUM)"
+    />
+    <label class="btn btn-outline-primary" for="btnRadioMedium">
+      <i class="fa fa-bolt" aria-hidden="true"></i>
+      <i class="fa fa-bolt" aria-hidden="true"></i><br />
+      Medium</label
+    >
+
+    <input
+      type="radio"
+      class="btn-check"
+      name="btnRadioGroup2"
+      id="btnRadioFast"
+      [checked]="inputTickSettings.tickSpeed === tickSpeed.FAST"
+      (click)="onTickSpeedChanged(tickSpeed.FAST)"
+    />
+    <label class="btn btn-outline-primary" for="btnRadioFast">
+      <i class="fa fa-bolt" aria-hidden="true"></i>
+      <i class="fa fa-bolt" aria-hidden="true"></i>
+      <i class="fa fa-bolt" aria-hidden="true"></i><br />
+      Fast</label
+    >
+  </div>
+
+  <div
+    class="btn-group w-100 mb-2"
+    role="group"
+    aria-label="Basic radio toggle button group"
+  >
+    <input
+      type="radio"
+      class="btn-check"
+      name="btnRadioGroup3"
+      id="btnRadioDown"
+      [checked]="inputTickSettings.tickDirection === tickDirection.Down"
+      (click)="onTickDirectionChanged(tickDirection.Down)"
+    />
+    <label class="btn btn-outline-primary" for="btnRadioDown">
+      <i class="fa fa-arrow-down" aria-hidden="true"></i><br />
+      Down</label
+    >
+
+    <input
+      type="radio"
+      class="btn-check"
+      name="btnRadioGroup3"
+      id="btnRadioUp"
+      [checked]="inputTickSettings.tickDirection === tickDirection.Up"
+      (click)="onTickDirectionChanged(tickDirection.Up)"
+    />
+    <label class="btn btn-outline-primary" for="btnRadioUp">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i><br />
+      Up</label
+    >
+  </div>
+</div>

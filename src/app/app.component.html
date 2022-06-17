@@ -1,0 +1,29 @@
+<div *ngIf="vm$ | async as vm" class="container p-2">
+  <h1 class="text-center display-5">Reactive Counter</h1>
+
+  <hr />
+
+  <counter [counter]="vm.counter"></counter>
+
+  <hr />
+
+  <step-selection
+    [selectedStep]="vm.step"
+    (stepSelectedEvent)="stepSelectedHandler($event)"
+  ></step-selection>
+
+  <hr />
+
+  <manual-controls
+    (decrementEvent)="manualDecrementHandler()"
+    (incrementEvent)="manualIncrementHandler()"
+    (resetEvent)="manualSetHandler(0)"
+  ></manual-controls>
+
+  <hr />
+
+  <tick-settings
+    [inputTickSettings]="vm.tickSettings"
+    (tickSettingsChangedEvent)="tickSettingsChangedHandler($event)"
+  ></tick-settings>
+</div>

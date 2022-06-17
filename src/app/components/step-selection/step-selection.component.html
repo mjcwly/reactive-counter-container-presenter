@@ -1,0 +1,64 @@
+<div class="m-2">
+  <div
+    class="btn-group w-100"
+    role="group"
+    aria-label="Basic radio toggle button group"
+  >
+    <input
+      type="radio"
+      class="btn-check"
+      name="btnRadioGroup4"
+      id="btnRadio1"
+      [checked]="selectedStep === stepConstants.UNITS"
+      (click)="onStepChanged(stepConstants.UNITS)"
+    />
+    <label class="btn btn-outline-primary" for="btnRadio1">
+      <i class="fa fa-hashtag" aria-hidden="true"></i><br />
+      Units</label
+    >
+
+    <input
+      type="radio"
+      class="btn-check"
+      name="btnRadioGroup4"
+      id="btnRadio10"
+      [checked]="selectedStep === stepConstants.TENS"
+      (click)="onStepChanged(stepConstants.TENS)"
+    />
+    <label class="btn btn-outline-primary" for="btnRadio10">
+      <i class="fa fa-hashtag" aria-hidden="true"></i>
+      <i class="fa fa-hashtag" aria-hidden="true"></i><br />
+
+      Tens</label
+    >
+
+    <input
+      type="radio"
+      class="btn-check"
+      name="btnRadioGroup4"
+      id="btnRadio100"
+      [checked]="selectedStep === stepConstants.HUNDREDS"
+      (click)="onStepChanged(stepConstants.HUNDREDS)"
+    />
+    <label class="btn btn-outline-primary" for="btnRadio100">
+      <i class="fa fa-hashtag" aria-hidden="true"></i>
+      <i class="fa fa-hashtag" aria-hidden="true"></i>
+      <i class="fa fa-hashtag" aria-hidden="true"></i><br />Hundreds</label
+    >
+
+    <input
+      type="radio"
+      class="btn-check"
+      name="btnRadioGroup4"
+      id="btnRadio1000"
+      [checked]="selectedStep === stepConstants.THOUSANDS"
+      (click)="onStepChanged(stepConstants.THOUSANDS)"
+    />
+    <label class="btn btn-outline-primary" for="btnRadio1000">
+      <i class="fa fa-hashtag" aria-hidden="true"></i>
+      <i class="fa fa-hashtag" aria-hidden="true"></i>
+      <i class="fa fa-hashtag" aria-hidden="true"></i>
+      <i class="fa fa-hashtag" aria-hidden="true"></i><br />Thousands</label
+    >
+  </div>
+</div>
