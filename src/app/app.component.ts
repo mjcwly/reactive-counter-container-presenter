@@ -12,7 +12,6 @@ import { CounterService } from './services/counter.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-
   vm$ = combineLatest([
     this.counterService.displayCounter$,
     this.stepSettingsService.step$,

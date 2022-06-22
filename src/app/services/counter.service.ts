@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Step } from '../models/step.enum';
 import {
   BehaviorSubject,
   combineLatest,
@@ -58,11 +57,8 @@ export class CounterService {
     this.tickSettingsService.isTicking$,
   ]).pipe(
     filter(([, isTicking]) => !!isTicking),
-    withLatestFrom(this.counter$),
-    withLatestFrom(this.tickIncrement$),
-    map(([[[, isTicking], counter], tickIncrement]) =>
-      isTicking ? counter + tickIncrement : 0
-    )
+    withLatestFrom(this.counter$, this.tickIncrement$),
+    map(([[], counter, tickIncrement]) => counter + tickIncrement)
   );
 
   displayCounter$ = merge(
