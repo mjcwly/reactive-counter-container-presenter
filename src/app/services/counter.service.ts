@@ -52,9 +52,9 @@ export class CounterService {
     )
   );
 
-  private autoIncrementCounter$ = combineLatest([
+  private autoCounter$ = combineLatest([
     this.tickInterval$,
-    this.tickSettingsService.isTicking$,
+    this.tickSettingsService.isTicking$
   ]).pipe(
     filter(([, isTicking]) => !!isTicking),
     withLatestFrom(this.counter$, this.tickIncrement$),
@@ -66,7 +66,7 @@ export class CounterService {
     this.manualSet$,
     this.manualDecrement$,
     this.manualIncrement$,
-    this.autoIncrementCounter$
+    this.autoCounter$
   ).pipe(tap((counter) => this.counterSubject$.next(counter)));
 
   constructor(
