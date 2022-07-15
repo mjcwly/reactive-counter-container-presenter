@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, combineLatest, map } from 'rxjs';
+import { BehaviorSubject, combineLatest, map, Observable } from 'rxjs';
 import { TickDirection } from '../models/tick-direction.enum';
 import { ITickSettings } from '../models/tick-settings.model';
 import { TickSpeed, TickSpeedConstants } from '../models/tick-speed.enum';
@@ -21,16 +21,19 @@ export class TickSettingsService {
   );
   tickDirection$ = this.tickDirectionSubject$.asObservable();
 
-  tickSettings$ = combineLatest([
+  tickSettings$: Observable<ITickSettings> = combineLatest([
     this.isTicking$,
     this.tickSpeed$,
     this.tickDirection$,
   ]).pipe(
-    map(([isTicking, tickSpeed, tickDirection]) => ({
-      isTicking,
-      tickSpeed,
-      tickDirection,
-    }))
+    map(([isTicking, tickSpeed, tickDirection]) => {
+      const tickSettings: ITickSettings = {
+        isTicking,
+        tickSpeed,
+        tickDirection,
+      };
+      return tickSettings;
+    })
   );
 
   setTickSettings(tickSettings: ITickSettings) {
