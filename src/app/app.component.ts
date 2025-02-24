@@ -5,12 +5,24 @@ import { ITickSettings } from './models/tick-settings.model';
 import { TickSettingsService } from './services/tick-settings.service';
 import { StepSettingsService } from './services/step-settings.service';
 import { CounterService } from './services/counter.service';
+import { StepSelectionComponent } from './components/step-selection/step-selection.component';
+import { CounterComponent } from './components/counter/counter.component';
+import { ManualControlsComponent } from './components/manual-controls/manual-controls.component';
+import { TickSettingsComponent } from './components/tick-settings/tick-settings.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'my-app',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
-    standalone: false
+    standalone: true,
+    imports:[
+      CommonModule,
+      StepSelectionComponent,
+      CounterComponent,
+      ManualControlsComponent,
+      TickSettingsComponent
+    ]
 })
 export class AppComponent {
   vm$ = combineLatest([

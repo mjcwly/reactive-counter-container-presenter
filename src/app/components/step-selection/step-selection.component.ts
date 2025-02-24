@@ -5,7 +5,7 @@ import { Step, StepConstants } from '../../models/step.enum';
     selector: 'step-selection',
     templateUrl: './step-selection.component.html',
     styleUrls: ['./step-selection.component.css'],
-    standalone: false
+    standalone: true
 })
 export class StepSelectionComponent {
   @Input() selectedStep: Step;

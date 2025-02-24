@@ -5,7 +5,7 @@ import { Step } from '../../models/step.enum';
     selector: 'manual-controls',
     templateUrl: './manual-controls.component.html',
     styleUrls: ['./manual-controls.component.css'],
-    standalone: false
+    standalone: true
 })
 export class ManualControlsComponent {
   @Output() decrementEvent = new EventEmitter<void>();

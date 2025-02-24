@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
     selector: 'counter',
     templateUrl: './counter.component.html',
     styleUrls: ['./counter.component.css'],
-    standalone: false
+    standalone: true
 })
 export class CounterComponent {
   @Input() counter: number;

@@ -8,7 +8,7 @@ import { TickSpeed, TickSpeedConstants } from '../../models/tick-speed.enum';
     selector: 'tick-settings',
     templateUrl: './tick-settings.component.html',
     styleUrls: ['./tick-settings.component.css'],
-    standalone: false
+    standalone: true
 })
 export class TickSettingsComponent {
   @Input() inputTickSettings: ITickSettings;
