@@ -8,37 +8,64 @@ import { TickSpeed, TickSpeedConstants } from '../models/tick-speed.enum';
   providedIn: 'root',
 })
 export class TickSettingsService {
-  private isTickingSubject$ = new BehaviorSubject<boolean>(false);
-  isTicking$ = this.isTickingSubject$.asObservable();
+  /**
+   * The boolean value of whether the counter is ticking or not 
+   * stored in a BehaviorSubject.
+   */
+  private isTicking$$ = new BehaviorSubject<boolean>(false);
+  
+  /**
+   * The boolean value of whether the counter is ticking or not
+   * exposed as an observable.
+   */
+  isTicking$ = this.isTicking$$.asObservable();
 
-  private tickSpeedSubject$ = new BehaviorSubject<TickSpeed>(
+  /**
+   * The tick speed value stored in a BehaviorSubject. 
+   */
+  private tickSpeed$$ = new BehaviorSubject<TickSpeed>(
     TickSpeedConstants.FAST
   );
-  tickSpeed$ = this.tickSpeedSubject$.asObservable();
 
-  private tickDirectionSubject$ = new BehaviorSubject<TickDirection>(
+  /**
+   * The tick speed value exposed as an observable.
+   */
+  tickSpeed$ = this.tickSpeed$$.asObservable();
+
+  /**
+   * The tick directiom stored in a BehaviorSubject.
+   */
+  private tickDirection$$ = new BehaviorSubject<TickDirection>(
     TickDirection.Up
   );
-  tickDirection$ = this.tickDirectionSubject$.asObservable();
 
+  /**
+   * The tick direction exposed as an observable.
+   */
+  tickDirection$ = this.tickDirection$$.asObservable();
+
+  /**
+   * An observable that emits the all tick settings as a single object.
+   */
   tickSettings$: Observable<ITickSettings> = combineLatest([
     this.isTicking$,
     this.tickSpeed$,
     this.tickDirection$,
   ]).pipe(
-    map(([isTicking, tickSpeed, tickDirection]) => {
-      const tickSettings: ITickSettings = {
-        isTicking,
-        tickSpeed,
-        tickDirection,
-      };
+    map(([isTicking, tickSpeed, tickDirection]: [boolean, TickSpeed, TickDirection]) => {
+      const tickSettings: ITickSettings = { isTicking, tickSpeed, tickDirection };
       return tickSettings;
     })
   );
 
+  /**
+   * A public method to set the current tick settings.
+   * 
+   * @param tickSettings The tick settings to set. 
+   */
   setTickSettings(tickSettings: ITickSettings) {
-    this.isTickingSubject$.next(tickSettings.isTicking);
-    this.tickSpeedSubject$.next(tickSettings.tickSpeed);
-    this.tickDirectionSubject$.next(tickSettings.tickDirection);
+    this.isTicking$$.next(tickSettings.isTicking);
+    this.tickSpeed$$.next(tickSettings.tickSpeed);
+    this.tickDirection$$.next(tickSettings.tickDirection);
   }
 }
