@@ -2,9 +2,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Step, StepConstants } from '../../models/step.enum';
 
 @Component({
-  selector: 'step-selection',
-  templateUrl: './step-selection.component.html',
-  styleUrls: ['./step-selection.component.css'],
+    selector: 'step-selection',
+    templateUrl: './step-selection.component.html',
+    styleUrls: ['./step-selection.component.css'],
+    standalone: false
 })
 export class StepSelectionComponent {
   @Input() selectedStep: Step;

@@ -5,9 +5,10 @@ import { ITickSettings } from '../../models/tick-settings.model';
 import { TickSpeed, TickSpeedConstants } from '../../models/tick-speed.enum';
 
 @Component({
-  selector: 'tick-settings',
-  templateUrl: './tick-settings.component.html',
-  styleUrls: ['./tick-settings.component.css'],
+    selector: 'tick-settings',
+    templateUrl: './tick-settings.component.html',
+    styleUrls: ['./tick-settings.component.css'],
+    standalone: false
 })
 export class TickSettingsComponent {
   @Input() inputTickSettings: ITickSettings;

@@ -2,9 +2,10 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { Step } from '../../models/step.enum';
 
 @Component({
-  selector: 'manual-controls',
-  templateUrl: './manual-controls.component.html',
-  styleUrls: ['./manual-controls.component.css'],
+    selector: 'manual-controls',
+    templateUrl: './manual-controls.component.html',
+    styleUrls: ['./manual-controls.component.css'],
+    standalone: false
 })
 export class ManualControlsComponent {
   @Output() decrementEvent = new EventEmitter<void>();
