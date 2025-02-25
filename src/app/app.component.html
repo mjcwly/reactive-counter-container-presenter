@@ -14,16 +14,16 @@
 
   <hr />
 
+  <tick-settings
+    [inputTickSettings]="vm.tickSettings"
+    (tickSettingsChangedEvent)="tickSettingsChangedHandler($event)"
+  ></tick-settings>
+
+  <hr />
+
   <manual-controls
     (decrementEvent)="manualDecrementHandler()"
     (incrementEvent)="manualIncrementHandler()"
     (resetEvent)="manualSetHandler(0)"
   ></manual-controls>
-
-  <hr />
-
-  <tick-settings
-    [inputTickSettings]="vm.tickSettings"
-    (tickSettingsChangedEvent)="tickSettingsChangedHandler($event)"
-  ></tick-settings>
 </div>
